@@ -7,12 +7,12 @@ class SevenGlyph(NumberGlyph):
     name = "seven"
     unicode = "0x37"
     offset_foot = 0.3
-    width_ratio = 0.936
-    sbl = 0.610
-    sbr = 0.793
-    bold_width_ratio = 1.032
-    bold_sbl = 0.676
-    bold_sbr = 0.944
+    width_ratio = 0.961
+    sbl = 0.564
+    sbr = 0.663
+    bold_width_ratio = 1.039
+    bold_sbl = 0.622
+    bold_sbr = 0.699
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

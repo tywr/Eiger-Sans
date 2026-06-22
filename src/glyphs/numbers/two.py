@@ -9,19 +9,19 @@ from utils.pens import NullPen
 class TwoGlyph(NumberGlyph):
     name = "two"
     unicode = "0x32"
-    width_ratio = 0.932
+    width_ratio = 0.950
     loop_offset = 0.02
     hx_ratio = 0.95
     hy_ratio = 1
     xj_ratio = 0.68
     yj_ratio = 0.46
     internal_radius = 0.25
-    sbl = 0.634
-    sbr = 0.793
+    sbl = 0.878
+    sbr = 0.820
     overshoot_top = True
-    bold_width_ratio = 1.050
-    bold_sbl = 0.620
-    bold_sbr = 0.873
+    bold_width_ratio = 1.065
+    bold_sbl = 0.827
+    bold_sbr = 0.833
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
