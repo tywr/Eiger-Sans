@@ -1,0 +1,11 @@
+fonttools>=4.47.0
+skia-pathops
+booleanOperations
+ufoLib2
+ttfautohint-py
+numpy
+matplotlib
+Pillow
+Pygments
+reportlab
+PyYAML

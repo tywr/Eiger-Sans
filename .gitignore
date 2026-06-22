@@ -15,6 +15,7 @@ ext-fonts
 fonts/otf/IBMPlexMono-Bold.otf
 fonts/otf/IBMPlexMono-Regular.otf
 src/NordgratSansMono.egg-info
+.venv/
 custom-fonts/*
 */.txt
 univers-metrics.txt

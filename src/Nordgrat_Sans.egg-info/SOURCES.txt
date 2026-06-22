@@ -10,6 +10,7 @@ src/visualize.py
 src/Nordgrat_Sans.egg-info/PKG-INFO
 src/Nordgrat_Sans.egg-info/SOURCES.txt
 src/Nordgrat_Sans.egg-info/dependency_links.txt
+src/Nordgrat_Sans.egg-info/requires.txt
 src/Nordgrat_Sans.egg-info/top_level.txt
 src/draw/__init__.py
 src/draw/arch.py

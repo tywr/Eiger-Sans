@@ -10,7 +10,7 @@ class LowercaseAGlyph(Glyph):
     name = "lowercase_a"
     unicode = "0x61"
     accent_x_offset = 16
-    mid_height = 0.525
+    mid_height = 0.55
     width_ratio = 0.845
     taper = 0.4
     sbl = 0.549
@@ -19,18 +19,18 @@ class LowercaseAGlyph(Glyph):
     bold_sbl = 0.465
     bold_sbr = 0.875
 
-    bot_hx_ratio = 1.2
-    bot_hy_ratio = 0.9
-    left_cap_hx_ratio = 1.05
-    left_cap_hy_ratio = 0.65
-    cap_mid_offset = 0.028
-    cap_hx_ratio = 1.27
-    cap_hy_ratio = 1.1
-    cap_x_stroke_ratio = 1.01
-    cap_y_stroke_ratio = 1.06
+    bot_hx_ratio = 1.4
+    bot_hy_ratio = 0.95
+    right_cap_hx_ratio = 1.15
+    right_cap_hy_ratio = 0.65
+    cap_mid_offset = 0.031
+    cap_hx_ratio = 1.2
+    cap_hy_ratio = 1.3
+    cap_x_stroke_ratio = 1.1
+    cap_y_stroke_ratio = 0.98
     cap_start_height = 0.68
-    cap_height = 0.74
-    cap_offset = 0.01
+    cap_height = 0.72
+    cap_offset = 0.06
     thinning = 0.9
     upper_bowl_mid = 0.56
     ending_thickness = 0.7
@@ -49,7 +49,6 @@ class LowercaseAGlyph(Glyph):
         ry = (self.mid_height * b.height + dc.stroke_alt / 2) / b.height
         ymid = b.y1 + self.mid_height * b.height
         xmc = b.xmid + self.cap_mid_offset * b.width
-        xmu = b.x1 + self.upper_bowl_mid * b.width
         ycap = b.y1 + self.cap_start_height * b.height
         yl = ymid + dc.stroke_alt / 2
         hx, hy = b.hx, b.hy * ry
@@ -57,8 +56,8 @@ class LowercaseAGlyph(Glyph):
         ycut = b.y1 + self.cap_height * b.height
         xc = b.x1 + self.cap_offset * b.width
         chx, chy = self.cap_hx_ratio * b.hx, self.cap_hy_ratio * b.hy
-        lchx = self.left_cap_hx_ratio * b.hx
-        lchy = self.left_cap_hy_ratio * b.hy
+        rchx = self.right_cap_hx_ratio * b.hx
+        rchy = self.right_cap_hy_ratio * b.hy
 
         # Lower half half of the bowl
         draw_arch(
@@ -99,7 +98,7 @@ class LowercaseAGlyph(Glyph):
 
         # Cap
         draw_corner(
-            pen, sx, csy, b.x2, ycap, xmc, b.y2, lchx, lchy, orientation="top-left"
+            pen, sx, csy, b.x2, ycap, xmc, b.y2, rchx, rchy, orientation="top-left"
         )
 
         loop_glyph = ufoLib2.objects.Glyph()

@@ -10,6 +10,9 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from fontTools.ttLib import TTFont as FTFont
+
+from scripts.extract_kerning import extract_kerning
 
 
 # Character groups
@@ -60,6 +63,45 @@ TITLE_FONT_REGULAR = "U001"
 
 # Sentinel: when found in the samples list, force a new page before the next sample.
 SAMPLE_SEP = object()
+
+# reportlab's drawString/stringWidth ignore the font's GPOS/kern pairs, so we
+# apply the project's own kerning manually. Maps reportlab font name -> (kern
+# dict {(a, b): units}, unitsPerEm).
+KERN_BY_FONT = {}
+
+
+def _load_kern(reportlab_name, font_path):
+    """Remember the pair kerning of `font_path` under its reportlab font name."""
+    ft = FTFont(font_path)
+    KERN_BY_FONT[reportlab_name] = (extract_kerning(ft), ft["head"].unitsPerEm)
+    ft.close()
+
+
+def kerned_string_width(c, text, font_name, size):
+    """stringWidth including pair kerning (reportlab's own ignores it)."""
+    w = c.stringWidth(text, font_name, size)
+    kern, units = KERN_BY_FONT.get(font_name, (None, None))
+    if kern:
+        scale = size / units
+        for a, b in zip(text, text[1:]):
+            w += kern.get((a, b), 0) * scale
+    return w
+
+
+def draw_kerned_string(c, x, y, text, font_name, size):
+    """Like c.drawString, but applies the font's pair kerning. Returns end x."""
+    c.setFont(font_name, size)
+    kern, units = KERN_BY_FONT.get(font_name, (None, None))
+    if not kern:
+        c.drawString(x, y, text)
+        return x + c.stringWidth(text, font_name, size)
+    scale = size / units
+    for i, ch in enumerate(text):
+        c.drawString(x, y, ch)
+        x += c.stringWidth(ch, font_name, size)
+        if i + 1 < len(text):
+            x += kern.get((ch, text[i + 1]), 0) * scale
+    return x
 
 
 def _find_macos_font(filename):
@@ -146,6 +188,7 @@ def render_specimen(font_path, output="specimen.pdf"):
 
     os.makedirs(os.path.dirname(output), exist_ok=True)
     pdfmetrics.registerFont(TTFont("Nordgrat Sans", font_path))
+    _load_kern("Nordgrat Sans", font_path)
     _register_macos_otf(TITLE_FONT, "Switzer-Bold.otf")
     _register_macos_otf(TITLE_FONT_REGULAR, "Switzer-Regular.otf")
 
@@ -158,6 +201,7 @@ def render_specimen(font_path, output="specimen.pdf"):
             continue
         font_name = f"Nordgrat Sans-{ps_style}"
         pdfmetrics.registerFont(TTFont(font_name, path))
+        _load_kern(font_name, path)
         available_variants.append((font_name, display_name))
 
     page_w, page_h = A4
@@ -183,10 +227,11 @@ def render_specimen(font_path, output="specimen.pdf"):
 
     cover_size = 72
     c.setFillColorRGB(1, 1, 1)
-    c.setFont("Nordgrat Sans", cover_size)
     cover_text = "NORDGRAT"
-    text_w = c.stringWidth(cover_text, "Nordgrat Sans", cover_size)
-    c.drawString((page_w - text_w) / 2, (page_h - cover_size) / 2, cover_text)
+    text_w = kerned_string_width(c, cover_text, "Nordgrat Sans", cover_size)
+    draw_kerned_string(
+        c, (page_w - text_w) / 2, (page_h - cover_size) / 2, cover_text, "Nordgrat Sans", cover_size
+    )
     c.showPage()
 
     # --- Family Overview page ---
@@ -214,8 +259,7 @@ def render_specimen(font_path, output="specimen.pdf"):
         block_h = (len(variants) - 1) * variant_leading
         y = (y_low + y_high) / 2 + block_h / 2
         for font_name, display_name in variants:
-            c.setFont(font_name, variant_size)
-            c.drawString(MARGIN_X, y, display_name)
+            draw_kerned_string(c, MARGIN_X, y, display_name, font_name, variant_size)
             y -= variant_leading
 
     c.setFillColorRGB(*FG)
@@ -375,14 +419,14 @@ def render_specimen(font_path, output="specimen.pdf"):
         line = ""
         for word in words:
             test = f"{line} {word}".strip()
-            if c.stringWidth(test, font_name, sample_size) > max_text_w:
-                c.drawString(MARGIN_X, y, line)
+            if kerned_string_width(c, test, font_name, sample_size) > max_text_w:
+                draw_kerned_string(c, MARGIN_X, y, line, font_name, sample_size)
                 y -= leading
                 line = word
             else:
                 line = test
         if line:
-            c.drawString(MARGIN_X, y, line)
+            draw_kerned_string(c, MARGIN_X, y, line, font_name, sample_size)
             y -= leading
 
         y -= 8 * mm

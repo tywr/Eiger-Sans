@@ -54,7 +54,7 @@ class FontConfig:
     default_stroke: int = 88
     stroke_x = 88
     stroke_y = 62
-    stroke_alt = 62
+    stroke_alt = 58
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
