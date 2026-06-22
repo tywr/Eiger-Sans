@@ -132,7 +132,7 @@ class DrawConfig(FontConfig):
         ro = 6
         exo = exp((w - 400) * log(ro) / 300)
 
-        bt = 0.7
+        bt = 0.6
         ratio_taper = exp((w - 400) * log(bt) / 300)
 
         return cls(
