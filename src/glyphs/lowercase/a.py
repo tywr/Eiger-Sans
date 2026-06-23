@@ -19,13 +19,17 @@ class LowercaseAGlyph(Glyph):
     bold_sbl = 0.465
     bold_sbr = 0.875
 
-    bot_hx_ratio = 1.4
-    bot_hy_ratio = 0.9
-    right_cap_hx_ratio = 1.15
-    right_cap_hy_ratio = 0.65
+    stroke_x_ratio = 0.98
+    stroke_alt_ratio = 0.97
+    bot_hx_ratio = 0.95
+    bot_hy_ratio = 0.65
+    mid_hx_ratio = 1.4
+    mid_hy_ratio = 0.9
+    right_cap_hx_ratio = 1.05
+    right_cap_hy_ratio = 0.75
     cap_mid_offset = 0.031
-    cap_hx_ratio = 1.2
-    cap_hy_ratio = 1.3
+    cap_hx_ratio = 1.05
+    cap_hy_ratio = 1.4
     cap_x_stroke_ratio = 1.1
     cap_y_stroke_ratio = 0.98
     cap_start_height = 0.68
@@ -40,19 +44,18 @@ class LowercaseAGlyph(Glyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         ec = self.extra_cut(dc)
-        sx, sy = dc.stroke_x, dc.stroke_y
+        sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y
+        sa = dc.stroke_alt * self.stroke_alt_ratio
         csx, csy = (
             dc.stroke_x * self.cap_x_stroke_ratio,
             dc.stroke_y * self.cap_y_stroke_ratio,
         )
-        dx = sx - dc.stroke_x
-        ry = (self.mid_height * b.height + dc.stroke_alt / 2) / b.height
         ymid = b.y1 + self.mid_height * b.height
         xmc = b.xmid + self.cap_mid_offset * b.width
         ycap = b.y1 + self.cap_start_height * b.height
-        yl = ymid + dc.stroke_alt / 2
-        hx, hy = b.hx, b.hy * ry
-        bhx, bhy = self.bot_hx_ratio * b.hx, self.bot_hy_ratio * b.hy
+        yl = ymid + sa / 2
+        hx, hy = b.hx * self.bot_hx_ratio, b.hy * self.bot_hy_ratio
+        bhx, bhy = self.mid_hx_ratio * b.hx, self.mid_hy_ratio * b.hy
         ycut = b.y1 + self.cap_height * b.height
         xc = b.x1 + self.cap_offset * b.width
         chx, chy = self.cap_hx_ratio * b.hx, self.cap_hy_ratio * b.hy
@@ -66,7 +69,7 @@ class LowercaseAGlyph(Glyph):
             sy,
             b.x1,
             b.y1,
-            b.x2 + dx,
+            b.x2,
             yl,
             hx,
             hy,
@@ -79,7 +82,7 @@ class LowercaseAGlyph(Glyph):
         draw_corner(
             pen,
             sx,
-            dc.stroke_alt,
+            sa,
             b.x1,
             (b.y1 + yl) / 2,
             b.x2 - sx,
@@ -88,13 +91,6 @@ class LowercaseAGlyph(Glyph):
             bhy,
             orientation="top-right",
         )
-        # draw_rect(
-        #     pen,
-        #     xmu,
-        #     yl - dc.stroke_alt,
-        #     b.x2 - 0.5 * dc.stroke_x,
-        #     yl,
-        # )
 
         # Cap
         draw_corner(
