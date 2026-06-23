@@ -20,7 +20,7 @@ class LowercaseAGlyph(Glyph):
     bold_sbr = 0.875
 
     bot_hx_ratio = 1.4
-    bot_hy_ratio = 0.95
+    bot_hy_ratio = 0.9
     right_cap_hx_ratio = 1.15
     right_cap_hy_ratio = 0.65
     cap_mid_offset = 0.031
