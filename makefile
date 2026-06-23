@@ -8,4 +8,4 @@ build-otf:
 	.venv/bin/python -m generate_font --otf
 
 install-mac:
-	cp -r fonts/otf/NordgratSans-*.otf ~/Library/Fonts
+	cp -r fonts/otf/EigerSans-*.otf ~/Library/Fonts

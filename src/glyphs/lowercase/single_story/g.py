@@ -18,9 +18,9 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     tail_stroke_y_ratio = 1.01
     hx_ratio = 1.0
     hy_ratio = 0.92
-    tail_hx_ratio = 0.85
+    tail_hx_ratio = 0.95
     tail_hy_ratio = 0.6
-    cut_ratio = 0.265
+    cut_ratio = 0.290
     tail_offset = 0.04
     y1_offset = 0.065
     bold_width_ratio = 1.070
@@ -30,6 +30,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         hx, hy = (self.hx_ratio * b.hx, self.hy_ratio * b.hy)
+        ec = self.extra_cut(dc)
         bsx, bsy = (
             self.bowl_stroke_x_ratio * dc.stroke_x,
             self.bowl_stroke_y_ratio * dc.stroke_y,
@@ -93,7 +94,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
         draw_rect(
             cut_glyph.getPen(),
             b.x1 - 10,
-            dc.descent - dc.v_overshoot + b.height * self.cut_ratio,
+            dc.descent - dc.v_overshoot + b.height * self.cut_ratio + ec,
             b.xmid,
             b.ymid,
         )

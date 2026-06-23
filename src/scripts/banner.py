@@ -56,11 +56,11 @@ def render_banner(font_path, output="assets/banner.png"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Nordgrat banner")
+    parser = argparse.ArgumentParser(description="Generate Eiger banner")
     parser.add_argument(
         "font",
         nargs="?",
-        default="fonts/ttf/NordgratSans-Regular.ttf",
+        default="fonts/ttf/EigerSans-Regular.ttf",
         help="Path to font file",
     )
     parser.add_argument(

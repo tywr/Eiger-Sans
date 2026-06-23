@@ -10,12 +10,12 @@ class LowercaseMGlyph(Glyph):
     bold_width_ratio = 1.682
     mid_len = 1
     top_stroke_y = 1
-    loop_ratio = 0.65
-    hx_ratio = 0.5
-    hy_ratio = 0.7
+    loop_ratio = 0.75
+    hx_ratio = 0.55
+    hy_ratio = 0.75
     right_hx_ratio = 0.8
-    taper1 = 0.6
-    taper2 = 0.8
+    taper1 = 0.5
+    taper2 = 0.65
     ending_thickness = 0.75
     min_width = 74
     sbl = 0.963

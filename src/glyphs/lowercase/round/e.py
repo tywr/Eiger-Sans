@@ -11,16 +11,17 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     unicode = "0x65"
     mid_height = 0.52
     thinning = 0.9
-    tail_offset = 0.005
-    tail_height = 0.268
+    hx_ratio = 1.15
+    tail_offset = 0.02
+    tail_height = 0.330
     tail_hx_ratio = 1.15
-    tail_hy_ratio = 1.0
-    width_ratio = 0.94
-    bold_width_ratio = 1.04
+    tail_hy_ratio = 1.15
+    width_ratio = 0.92
+    bold_width_ratio = 1.02
     sbl = 0.549
-    sbr = 0.425
+    sbr = 0.546
     bold_sbl = 0.521
-    bold_sbr = 0.375
+    bold_sbr = 0.505
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
@@ -31,6 +32,7 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
         xt = b.x2 + self.tail_offset * b.width
         thx = self.tail_hx_ratio * b.hx
         thy = self.tail_hy_ratio * b.hy
+        hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
 
         # Half-left as the o-shape
         draw_loop(
@@ -41,22 +43,34 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             b.y1,
             b.x2,
             b.y2,
-            b.hx,
-            b.hy,
+            hx,
+            hy,
             cut="right",
         )
+        # draw_corner(
+        #     pen,
+        #     sx,
+        #     sy,
+        #     b.x1,
+        #     b.ymid,
+        #     b.xmid,
+        #     b.y2,
+        #     hx,
+        #     hy,
+        #     orientation="top-right",
+        # )
 
         # Top-right corner
         draw_corner(
             pen,
             sx * self.thinning,
             sy,
-            b.x2 - dc.h_overshoot,
+            b.x2,
             b.ymid,
             b.xmid,
             b.y2,
-            b.hx,
-            b.hy,
+            hx,
+            hy,
             orientation="top-left",
         )
 
@@ -90,13 +104,13 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             pen,
             b.x1 + sx / 2,
             ymid,
-            b.x2 - dc.h_overshoot - sx / 2,
+            b.x2 - sx / 2,
             ymid + dc.stroke_alt / 2,
         )
         draw_rect(
             pen,
             b.x1 + sx / 2,
             ymid - dc.stroke_alt / 2,
-            b.x2 - dc.h_overshoot,
+            b.x2,
             max(ymid, b.ymid),
         )

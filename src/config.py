@@ -9,7 +9,7 @@ from kerning_bold import BOLD_KERNING_TABLE
 class FontConfig:
     """Default metrics used for the project, can be overwritten with a yaml file"""
 
-    family_name: str = "Nordgrat Sans"
+    family_name: str = "Eiger Sans"
     weight: int = 400
 
     units_per_em: int = 1000
@@ -109,12 +109,11 @@ class DrawConfig(FontConfig):
         """Return a DrawConfig with heavier stroke weights for a bold variant."""
         from math import log, exp
 
-        # 166
-        brx = 1.66
+        brx = 1.6
         ratio_x = exp((w - 400) * log(brx) / 300)
 
         # 97
-        bry = 1.6
+        bry = 1.5
         ratio_y = exp((w - 400) * log(bry) / 300)
 
         bra = 1.3

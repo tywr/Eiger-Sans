@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a font specimen PDF for Nordgrat Sans.
+"""Generate a font specimen PDF for Eiger Sans.
 
 Usage: python scripts/specimen.py [path/to/font.ttf]
 """
@@ -41,20 +41,20 @@ CHAR_SIZE = 28
 
 
 FAMILY_VARIANTS = [
-    ("Thin", "Nordgrat Sans Thin"),
-    ("ThinItalic", "Nordgrat Sans Thin Italic"),
-    ("ExtraLight", "Nordgrat Sans ExtraLight"),
-    ("ExtraLightItalic", "Nordgrat Sans ExtraLight Italic"),
-    ("Light", "Nordgrat Sans Light"),
-    ("LightItalic", "Nordgrat Sans Light Italic"),
-    ("Regular", "Nordgrat Sans Regular"),
-    ("Italic", "Nordgrat Sans Italic"),
-    ("Medium", "Nordgrat Sans Medium"),
-    ("MediumItalic", "Nordgrat Sans Medium Italic"),
-    ("SemiBold", "Nordgrat Sans SemiBold"),
-    ("SemiBoldItalic", "Nordgrat Sans SemiBold Italic"),
-    ("Bold", "Nordgrat Sans Bold"),
-    ("BoldItalic", "Nordgrat Sans Bold Italic"),
+    ("Thin", "Eiger Sans Thin"),
+    ("ThinItalic", "Eiger Sans Thin Italic"),
+    ("ExtraLight", "Eiger Sans ExtraLight"),
+    ("ExtraLightItalic", "Eiger Sans ExtraLight Italic"),
+    ("Light", "Eiger Sans Light"),
+    ("LightItalic", "Eiger Sans Light Italic"),
+    ("Regular", "Eiger Sans Regular"),
+    ("Italic", "Eiger Sans Italic"),
+    ("Medium", "Eiger Sans Medium"),
+    ("MediumItalic", "Eiger Sans Medium Italic"),
+    ("SemiBold", "Eiger Sans SemiBold"),
+    ("SemiBoldItalic", "Eiger Sans SemiBold Italic"),
+    ("Bold", "Eiger Sans Bold"),
+    ("BoldItalic", "Eiger Sans Bold Italic"),
 ]
 
 
@@ -187,8 +187,8 @@ def render_specimen(font_path, output="specimen.pdf"):
     import os
 
     os.makedirs(os.path.dirname(output), exist_ok=True)
-    pdfmetrics.registerFont(TTFont("Nordgrat Sans", font_path))
-    _load_kern("Nordgrat Sans", font_path)
+    pdfmetrics.registerFont(TTFont("Eiger Sans", font_path))
+    _load_kern("Eiger Sans", font_path)
     _register_macos_otf(TITLE_FONT, "Switzer-Bold.otf")
     _register_macos_otf(TITLE_FONT_REGULAR, "Switzer-Regular.otf")
 
@@ -196,10 +196,10 @@ def render_specimen(font_path, output="specimen.pdf"):
     font_dir = os.path.dirname(font_path)
     available_variants = []
     for ps_style, display_name in FAMILY_VARIANTS:
-        path = os.path.join(font_dir, f"NordgratSans-{ps_style}.ttf")
+        path = os.path.join(font_dir, f"EigerSans-{ps_style}.ttf")
         if not os.path.exists(path):
             continue
-        font_name = f"Nordgrat Sans-{ps_style}"
+        font_name = f"Eiger Sans-{ps_style}"
         pdfmetrics.registerFont(TTFont(font_name, path))
         _load_kern(font_name, path)
         available_variants.append((font_name, display_name))
@@ -207,7 +207,7 @@ def render_specimen(font_path, output="specimen.pdf"):
     page_w, page_h = A4
     c = canvas.Canvas(output, pagesize=A4)
 
-    # --- Cover page: banner-raw background (cover/crop), white "Nordgrat Sans" centered ---
+    # --- Cover page: banner-raw background (cover/crop), white "Eiger Sans" centered ---
     from reportlab.lib.utils import ImageReader
 
     cover_img = ImageReader("assets/specimen-bg.jpg")
@@ -228,9 +228,9 @@ def render_specimen(font_path, output="specimen.pdf"):
     cover_size = 72
     c.setFillColorRGB(1, 1, 1)
     cover_text = "NORDGRAT"
-    text_w = kerned_string_width(c, cover_text, "Nordgrat Sans", cover_size)
+    text_w = kerned_string_width(c, cover_text, "Eiger Sans", cover_size)
     draw_kerned_string(
-        c, (page_w - text_w) / 2, (page_h - cover_size) / 2, cover_text, "Nordgrat Sans", cover_size
+        c, (page_w - text_w) / 2, (page_h - cover_size) / 2, cover_text, "Eiger Sans", cover_size
     )
     c.showPage()
 
@@ -277,7 +277,7 @@ def render_specimen(font_path, output="specimen.pdf"):
     # Title
     c.setFillColorRGB(*FG)
     c.setFont(TITLE_FONT, TITLE_SIZE)
-    c.drawString(MARGIN_X, y, "Nordgrat Sans")
+    c.drawString(MARGIN_X, y, "Eiger Sans")
     y -= TITLE_SIZE + 16 * mm
 
     for group_label, chars in GROUPS:
@@ -289,11 +289,11 @@ def render_specimen(font_path, output="specimen.pdf"):
 
         # Lay out characters
         c.setFillColorRGB(*FG)
-        c.setFont("Nordgrat Sans", CHAR_SIZE)
+        c.setFont("Eiger Sans", CHAR_SIZE)
         x = MARGIN_X
         max_x = page_w - MARGIN_X
         for ch in chars:
-            char_w = c.stringWidth(ch, "Nordgrat Sans", CHAR_SIZE) + 8
+            char_w = c.stringWidth(ch, "Eiger Sans", CHAR_SIZE) + 8
             if x + char_w > max_x:
                 y -= CHAR_SIZE + 10
                 x = MARGIN_X
@@ -323,62 +323,62 @@ def render_specimen(font_path, output="specimen.pdf"):
     samples = [
         (
             "Bold",
-            "Nordgrat Sans-Bold",
+            "Eiger Sans-Bold",
             12,
             "The Eiger is a 3,967–metre (13,015 ft) mountain of the Bernese Alps, overlooking Grindelwald and Lauterbrunnen in the Bernese Oberland of Switzerland, just north of the main watershed and border with Valais.",
         ),
         (
             "Medium",
-            "Nordgrat Sans-Medium",
+            "Eiger Sans-Medium",
             12,
             "It is the easternmost peak of a ridge crest that extends across the Mönch to the Jungfrau at 4,158 m (13,642 ft), constituting one of the most emblematic sights of the Swiss Alps.",
         ),
         (
             "Regular",
-            "Nordgrat Sans",
+            "Eiger Sans",
             12,
             "While the northern side of the mountain rises more than 3,000 m (10,000 ft) above the two valleys of Grindelwald and Lauterbrunnen, the southern side faces the large glaciers of the Jungfrau-Aletsch area, the most glaciated region in the Alps.",
         ),
         (
             "Light",
-            "Nordgrat Sans-Light",
+            "Eiger Sans-Light",
             12,
             "The most notable feature of the Eiger is its nearly 1,800-metre-high (5,900 ft) north face of rock and ice, named Eiger-Nordwand, Eigerwand or just Nordwand, which is the biggest north face in the Alps.",
         ),
         (
             "Thin",
-            "Nordgrat Sans-Thin",
+            "Eiger Sans-Thin",
             12,
             "The first ascent of the Eiger was made by Swiss guides Christian Almer and Peter Bohren and Irishman Charles Barrington, who climbed the west flank on August 11, 1858.",
         ),
         SAMPLE_SEP,
         (
             "Bold",
-            "Nordgrat Sans-Bold",
+            "Eiger Sans-Bold",
             10,
             "The north face, the last problem of the Alps, considered amongst the most challenging and dangerous ascents, was first climbed in 1938 by an Austrian-German expedition.",
         ),
         (
             "Medium",
-            "Nordgrat Sans-Medium",
+            "Eiger Sans-Medium",
             10,
             "The Eiger has been highly publicized for the many tragedies involving climbing expeditions. Since 1935, at least 64 climbers have died attempting the north face, earning it the German nickname Mordwand, literally \"murder(ous) wall\"—a pun on its correct title of Nordwand (North Wall).",
         ),
         (
             "Regular",
-            "Nordgrat Sans",
+            "Eiger Sans",
             10,
             "Although the summit of the Eiger can be reached by experienced climbers only, a railway tunnel runs inside the mountain, and two internal stations provide easy access to viewing-windows carved into the rock face.",
         ),
         (
             "Light",
-            "Nordgrat Sans-Light",
+            "Eiger Sans-Light",
             10,
             "They are both part of the Jungfrau Railway line, running from Kleine Scheidegg to the Jungfraujoch, between the Mönch and the Jungfrau, at the highest railway station in Europe.",
         ),
         (
             "Thin",
-            "Nordgrat Sans-Thin",
+            "Eiger Sans-Thin",
             10,
             "The two stations within the Eiger are Eigerwand (behind the north face) and Eismeer (behind the south face), at around 3,000 metres. The Eigerwand station has not been regularly served since 2016.",
         ),
@@ -412,7 +412,7 @@ def render_specimen(font_path, output="specimen.pdf"):
         c.drawString(MARGIN_X + family_w, y, f"{sample_size}pt")
         y -= LABEL_SIZE + 8 + leading
 
-        # Word-wrap and draw the sample text in the chosen Nordgrat Sans variant
+        # Word-wrap and draw the sample text in the chosen Eiger Sans variant
         c.setFont(font_name, sample_size)
 
         words = text.split(" ")
@@ -436,11 +436,11 @@ def render_specimen(font_path, output="specimen.pdf"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Nordgrat Sans specimen")
+    parser = argparse.ArgumentParser(description="Generate Eiger Sans specimen")
     parser.add_argument(
         "font",
         nargs="?",
-        default="fonts/ttf/NordgratSans-Regular.ttf",
+        default="fonts/ttf/EigerSans-Regular.ttf",
         help="Path to font file",
     )
     parser.add_argument(

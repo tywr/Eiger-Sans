@@ -13,15 +13,17 @@ class LowercaseSGlyph(Glyph):
     stroke_x_ratio = 1.0
     stroke_y_ratio = 1.03
     hx_ratio = 1.05
-    hy_ratio = 1.05
-    mid_height = 0.52
-    opening1 = 0.265
-    opening2 = 0.74
+    hy_ratio = 1.3
+    top_hy_ratio = 0.7
+    bot_hy_ratio = 0.8
+    mid_height = 0.515
+    opening1 = 0.309
+    opening2 = 0.71
     thinning = 1
     left_offset = 0.03
     right_offset = 0.02
     curve_thinning = 0.01
-    curve_ratio = 2.4
+    curve_ratio = 1.9
     sbl = 0.573
     sbr = 0.573
     overshoot_top = True
@@ -35,14 +37,16 @@ class LowercaseSGlyph(Glyph):
         sx = self.stroke_x_ratio * dc.stroke_x
         sy = self.diag_stroke_dampening(self.stroke_y_ratio, dc.stroke_y, coef=0.6)
         hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
-        yc1 = b.y1 + b.height * self.opening1
-        yc2 = b.y1 + b.height * self.opening2
+        yc1 = b.y1 + b.height * self.opening1 + ec
+        yc2 = b.y1 + b.height * self.opening2 - ec
         ymid = b.y1 + self.mid_height * b.height
         x1 = b.x1 + self.left_offset * b.width
         x2 = b.x2 - self.right_offset * b.width
         hxt = (1 - self.left_offset - self.right_offset) * b.hx
-        ym1 = (b.y2 + ymid - sy / 2) / 2
-        ym2 = (b.y1 + ymid + sy / 2) / 2
+        htyt = self.top_hy_ratio * b.hy
+        hyt = self.bot_hy_ratio * b.hy
+        ym1 = (b.y2 + ymid - sy / 2) * 0.5
+        ym2 = (b.y1 + ymid + sy / 2) * 0.5
         th = self.curve_thinning * b.height
         r = self.curve_ratio
 
@@ -88,11 +92,11 @@ class LowercaseSGlyph(Glyph):
             sx * self.thinning,
             sy,
             x2,
-            (b.y2 + ymid - sy / 2) / 2,
+            yc2,
             b.xmid,
             b.y2,
             hxt,
-            hy * (1 - self.mid_height),
+            htyt,
             orientation="top-left",
         )
         draw_corner(
@@ -100,20 +104,20 @@ class LowercaseSGlyph(Glyph):
             sx * self.thinning,
             sy,
             b.x1,
-            ym2,
+            yc1,
             b.xmid,
             b.y1,
-            hx,
-            hy * self.mid_height,
+            hxt,
+            hyt,
             orientation="bottom-right",
         )
         cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(
-            cut_glyph.getPen(),
-            b.x1 - 10,
-            yc1 + ec,
-            b.x2 + 10,
-            yc2 - ec,
-        )
+        # draw_rect(
+        #     cut_glyph.getPen(),
+        #     b.x1 - 10,
+        #     yc1 + ec,
+        #     b.x2 + 10,
+        #     yc2 - ec,
+        # )
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)
