@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a banner image for the GitHub README.
 
-Overlays "NORDGRAT SANS" in white at the center of assets/banner-raw.jpg.
+Overlays "EIGER" in white at the center of assets/banner-raw.jpg.
 
 Usage: python -m scripts.banner [path/to/font.ttf]
 """
@@ -10,7 +10,7 @@ import argparse
 from PIL import Image, ImageDraw, ImageFont
 
 
-TEXT = "NORDGRAT"
+TEXT = "EIGER SANS"
 TAGLINE = "A font designed for all adventures"
 FG = "#ffffff"
 FONT_SIZE = 260

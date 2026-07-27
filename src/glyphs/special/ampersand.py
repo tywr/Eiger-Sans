@@ -1,13 +1,6 @@
-from math import tan
-import ufoLib2
-from booleanOperations.booleanGlyph import BooleanGlyph
-
 from glyphs import Glyph
-from draw.loop import draw_loop
 from draw.arch import draw_arch
 from draw.rect import draw_rect
-from draw.parallelogramm import draw_parallelogramm
-from utils.pens import NullPen
 
 
 class AmpersandGlyph(Glyph):
