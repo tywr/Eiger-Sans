@@ -11,12 +11,12 @@ class UppercaseRGlyph(UppercaseGlyph):
     loop_width = 0.96
     branch_start = 0.63
     width_ratio = 1.064339
-    bold_width_ratio = 1.177
+    bold_width_ratio = 1.170269
     offset_bold = 50
     sbl = 1.069524
     sbr = 0.575476
-    bold_sbl = 1.169
-    bold_sbr = 0.577
+    bold_sbl = 1.169267
+    bold_sbr = 0.581281
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

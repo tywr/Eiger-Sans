@@ -9,9 +9,9 @@ class LowercaseQGlyph(SingleStoryLowercaseGlyph):
     width_ratio = 0.988699
     sbr = 0.930000
     sbl = 0.627738
-    bold_width_ratio = 1.068
-    bold_sbl = 0.521
-    bold_sbr = 0.944
+    bold_width_ratio = 1.095372
+    bold_sbl = 0.628079
+    bold_sbr = 0.977012
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

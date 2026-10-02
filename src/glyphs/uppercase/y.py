@@ -7,13 +7,13 @@ class UppercaseYGlyph(UppercaseGlyph):
     name = "uppercase_y"
     unicode = "0x59"
     width_ratio = 1.213409
-    bold_width_ratio = 1.445
+    bold_width_ratio = 1.318554
     junction_ratio = 0.39
     stroke_x_ratio = 1.15
     sbr = 0.408215
     sbl = 0.401072
-    bold_sbl = -0.211
-    bold_sbr = -0.211
+    bold_sbl = 0.481117
+    bold_sbr = 0.474412
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

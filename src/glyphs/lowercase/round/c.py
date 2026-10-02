@@ -19,9 +19,9 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     width_ratio = 0.970843
     sbl = 0.627738
     sbr = 0.439907
-    bold_width_ratio = 1.02
-    bold_sbl = 0.521
-    bold_sbr = 0.300
+    bold_width_ratio = 1.048270
+    bold_sbl = 0.614669
+    bold_sbr = 0.480529
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -17,11 +17,11 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     tail_hx_ratio = 1.15
     tail_hy_ratio = 1.15
     width_ratio = 0.961219
-    bold_width_ratio = 1.02
+    bold_width_ratio = 1.047333
     sbl = 0.627738
     sbr = 0.634881
-    bold_sbl = 0.521
-    bold_sbr = 0.505
+    bold_sbl = 0.614669
+    bold_sbr = 0.673797
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

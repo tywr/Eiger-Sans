@@ -9,8 +9,8 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 class UppercaseCGlyph(UppercaseGlyph):
     name = "uppercase_c"
     unicode = "0x43"
-    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.04
-    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.09
+    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.05
+    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.02
     opening1 = 0.29
     opening2 = 0.69
     thinning = 1
@@ -20,11 +20,11 @@ class UppercaseCGlyph(UppercaseGlyph):
     overshoot_bottom = True
     overshoot_top = True
     width_ratio = 1.256041
-    bold_width_ratio = 1.284
+    bold_width_ratio = 1.328964
     sbl = 0.744047
     sbr = 0.540431
-    bold_sbl = 0.620
-    bold_sbr = 0.521
+    bold_sbl = 0.741653
+    bold_sbr = 0.599227
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -7,8 +7,8 @@ class UppercaseGlyph(Glyph, ABC):
 
     width_ratio = 1.00
     bold_width_ratio = 1.2
-    stroke_x_ratio = 1.075
-    stroke_y_ratio = 1.22
+    stroke_x_ratio = 1.03
+    stroke_y_ratio = 1.12
 
     height = "cap"
     uppercase = True

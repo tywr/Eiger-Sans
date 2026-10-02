@@ -8,9 +8,9 @@ class LowercaseOGlyph(RoundLowercaseGlyph):
     sbl = 0.627738
     sbr = 0.627738
     width_ratio = 1.002810
-    bold_width_ratio = 1.103
-    bold_sbl = 0.521
-    bold_sbr = 0.521
+    bold_width_ratio = 1.096860
+    bold_sbl = 0.614669
+    bold_sbr = 0.599754
 
     def draw(
         self,

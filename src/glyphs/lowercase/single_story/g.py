@@ -23,9 +23,9 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     cut_ratio = 0.28
     tail_offset = 0.04
     y1_offset = 0.065
-    bold_width_ratio = 1.070
-    bold_sbl = 0.521
-    bold_sbr = 0.930
+    bold_width_ratio = 1.097852
+    bold_sbl = 0.594691
+    bold_sbr = 0.967296
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

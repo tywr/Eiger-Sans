@@ -9,14 +9,14 @@ class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
     width_ratio = 0.982624
-    bold_width_ratio = 1.137
+    bold_width_ratio = 1.101674
     overlap = 0.5
     stroke_ratio = 1.05
     lower_section_height = 1.3
     sbl = 0.395238
     sbr = 0.395238
-    bold_sbl = 0.028
-    bold_sbr = 0.028
+    bold_sbl = 0.340723
+    bold_sbr = 0.340722
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

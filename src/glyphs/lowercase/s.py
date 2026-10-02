@@ -9,7 +9,7 @@ class LowercaseSGlyph(Glyph):
     name = "lowercase_s"
     unicode = "0x73"
     width_ratio = 0.863347
-    bold_width_ratio = 0.932
+    bold_width_ratio = 0.982624
     stroke_x_ratio = 1.0
     stroke_y_ratio = 1.03
     hx_ratio = 1.05
@@ -28,8 +28,8 @@ class LowercaseSGlyph(Glyph):
     sbr = 0.634881
     overshoot_top = True
     overshoot_bottom = True
-    bold_sbl = 0.549
-    bold_sbr = 0.549
+    bold_sbl = 0.621374
+    bold_sbr = 0.621374
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -6,11 +6,11 @@ class UppercaseTGlyph(UppercaseGlyph):
     name = "uppercase_t"
     unicode = "0x54"
     width_ratio = 1.119814
-    bold_width_ratio = 1.225
+    bold_width_ratio = 1.178347
     sbr = 0.546428
     sbl = 0.546428
-    bold_sbl = 0.085
-    bold_sbr = 0.085
+    bold_sbl = 0.614669
+    bold_sbr = 0.614669
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

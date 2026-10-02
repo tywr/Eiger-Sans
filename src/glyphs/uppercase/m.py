@@ -12,12 +12,12 @@ class UppercaseMGlyph(UppercaseGlyph):
     inner_thickness_ratio = 1
     inner_height = 0.0
     width_ratio = 1.434587
-    bold_width_ratio = 1.583
+    bold_width_ratio = 1.521571
     overlap = 0.1
     sbr = 1.069524
     sbl = 1.069524
-    bold_sbl = 1.169
-    bold_sbr = 1.169
+    bold_sbl = 1.169267
+    bold_sbr = 1.161057
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

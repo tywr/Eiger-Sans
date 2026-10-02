@@ -9,11 +9,11 @@ class UppercaseZGlyph(UppercaseGlyph):
     right_offset = 0.01
     left_offset = 0.01
     width_ratio = 1.077686
-    bold_width_ratio = 1.187
+    bold_width_ratio = 1.123843
     sbl = 0.837024
     sbr = 0.829881
-    bold_sbl = 0.282
-    bold_sbr = 0.282
+    bold_sbl = 0.902025
+    bold_sbr = 0.902025
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -13,11 +13,11 @@ class LowercaseTGlyph(Glyph):
     up_ratio = 0.27
     angle_offset = 0.3
     width_ratio = 0.591178
-    bold_width_ratio = 0.720
+    bold_width_ratio = 0.698120
     sbl = 0.348809
     sbr = 0.569642
-    bold_sbl = 0.141
-    bold_sbr = 0.268
+    bold_sbl = 0.380816
+    bold_sbr = 0.641489
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

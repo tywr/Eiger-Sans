@@ -9,13 +9,13 @@ class UppercaseUGlyph(UppercaseGlyph):
     hx_ratio = 1.0
     hy_ratio = 1.0
     width_ratio = 1.156116
-    bold_width_ratio = 1.278
+    bold_width_ratio = 1.219690
     loop_ratio = 0.66
     sbl = 1.057976
     sbr = 1.057976
     overshoot_bottom = True
-    bold_sbl = 1.127
-    bold_sbr = 1.127
+    bold_sbl = 1.162562
+    bold_sbr = 1.162561
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -9,14 +9,14 @@ class LowercaseYGlyph(Glyph):
     name = "lowercase_y"
     unicode = "0x79"
     width_ratio = 0.984649
-    bold_width_ratio = 1.153
+    bold_width_ratio = 1.120847
     overlap = 0.5
     stroke_ratio = 1.05
     lower_section_height = 1.3
     sbl = 0.395238
     sbr = 0.395238
-    bold_sbl = 0.014
-    bold_sbr = 0.014
+    bold_sbl = 0.374111
+    bold_sbr = 0.374111
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

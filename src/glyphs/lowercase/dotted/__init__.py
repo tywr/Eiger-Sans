@@ -9,6 +9,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
 
     dot_height = 1.1
     dot_width = 1.1
+    bold_dot_width = 1.1
     dot_position = "xmid"
     min_opening = 85
     sbl = 1
@@ -20,7 +21,12 @@ class DottedLowercaseGlyph(Glyph, ABC):
     def draw(self, pen, dc):
         self.draw_base(pen, dc)
         b = self.body_bounds(dc)
-        w = dc.stroke_x * self.dot_width
+        if dc.weight <= 400:
+            dot_width = self.dot_width
+        else:
+            blend = (dc.weight - 400) / 300
+            dot_width = (1 - blend) * self.dot_width + blend * self.bold_dot_width
+        w = dc.stroke_x * dot_width
 
         # Accent dot
         if self.dot_position == "x2":

@@ -9,13 +9,13 @@ class LowercaseZGlyph(Glyph):
     stroke_ratio = 1.0
     diag_stroke_ratio = 1.15
     width_ratio = 0.837356
-    bold_width_ratio = 0.873
+    bold_width_ratio = 0.925909
     right_offset = 0.01
     left_offset = 0.0
     sbl = 0.796310
     sbr = 0.796310
-    bold_sbl = 0.437
-    bold_sbr = 0.408
+    bold_sbl = 0.808429
+    bold_sbr = 0.809934
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

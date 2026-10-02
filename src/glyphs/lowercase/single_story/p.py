@@ -9,9 +9,9 @@ class LowercasePGlyph(SingleStoryLowercaseGlyph):
     width_ratio = 0.985414
     sbl = 0.941667
     sbr = 0.646548
-    bold_width_ratio = 1.068
-    bold_sbl = 0.944
-    bold_sbr = 0.521
+    bold_width_ratio = 1.096612
+    bold_sbl = 0.975506
+    bold_sbr = 0.614669
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

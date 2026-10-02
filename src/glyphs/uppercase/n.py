@@ -9,11 +9,11 @@ class UppercaseNGlyph(UppercaseGlyph):
     middle_stroke_ratio = 0.9
     overlap = 0.3
     width_ratio = 1.162210
-    bold_width_ratio = 1.274
+    bold_width_ratio = 1.233822
     sbl = 1.069524
     sbr = 1.069523
-    bold_sbl = 1.169
-    bold_sbr = 1.169
+    bold_sbl = 1.169267
+    bold_sbr = 1.169266
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -7,7 +7,7 @@ class UppercaseKGlyph(UppercaseGlyph):
     name = "uppercase_k"
     unicode = "0x4B"
     width_ratio = 1.118037
-    bold_width_ratio = 1.292
+    bold_width_ratio = 1.236839
     branch_ratio = 0.65
     mid_ratio = 0.55
     upper_branch_offset = 0.05
@@ -15,8 +15,8 @@ class UppercaseKGlyph(UppercaseGlyph):
     branch_overlap = 0.8
     sbr = 0.330000
     sbl = 1.069524
-    bold_sbl = 1.169
-    bold_sbr = -0.056
+    bold_sbl = 1.169267
+    bold_sbr = 0.347428
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

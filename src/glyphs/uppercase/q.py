@@ -9,15 +9,15 @@ class UppercaseQGlyph(UppercaseGlyph):
     tail_width = 0.45
     tail_height = 0.2
     width_ratio = 1.335702
-    bold_width_ratio = 1.390
-    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.04
-    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.09
+    bold_width_ratio = 1.402521
+    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.05
+    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.02
     sbl = 0.744047
     sbr = 0.744047
     overshoot_bottom = True
     overshoot_top = True
-    bold_sbl = 0.620
-    bold_sbr = 0.620
+    bold_sbl = 0.741653
+    bold_sbr = 0.733443
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

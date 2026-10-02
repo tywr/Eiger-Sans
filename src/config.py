@@ -20,7 +20,7 @@ class FontConfig:
 
     ascent: int = 735
     descent: int = -180
-    cap: int = 725
+    cap: int = 705
     x_height: int = 525
 
     accent: int = 685
@@ -37,8 +37,8 @@ class FontConfig:
     hx: int = 185
     hy: int = 185
 
-    cap_hx: int = 190
-    cap_hy: int = 160
+    cap_hx: int = 175
+    cap_hy: int = 175
 
     taper: float = 0.6
 
