@@ -6,9 +6,9 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseUGlyph(SquareLowercaseGlyph):
     name = "lowercase_u"
     unicode = "0x75"
-    width_ratio = 0.873
-    sbl = 0.963
-    sbr = 0.963
+    width_ratio = 0.889422
+    sbl = 0.883571
+    sbr = 0.941667
     overshoot_bottom = True
     bold_width_ratio = 1.000
     bold_sbl = 0.958

@@ -8,10 +8,10 @@ class UppercaseNGlyph(UppercaseGlyph):
     unicode = "0x4E"
     middle_stroke_ratio = 0.9
     overlap = 0.3
-    width_ratio = 1.147
+    width_ratio = 1.162210
     bold_width_ratio = 1.274
-    sbl = 1.195
-    sbr = 1.195
+    sbl = 1.069524
+    sbr = 1.069523
     bold_sbl = 1.169
     bold_sbr = 1.169
 

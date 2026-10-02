@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Visualize a single glyph (by slug name) or a text string."""
 
-import sys
-import math
 import argparse
+import math
+import sys
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
@@ -214,6 +215,31 @@ def find_glyph(slug_name, all_glyphs):
     raise SystemExit(f"No glyph found with name '{slug_name}'")
 
 
+def show_window(focus=False):
+    if focus:
+        if sys.platform != "darwin":
+            raise SystemExit("--focus is only supported on macOS")
+
+        from AppKit import NSApplication, NSApplicationActivationPolicyRegular
+
+        app = NSApplication.sharedApplication()
+        app.setActivationPolicy_(NSApplicationActivationPolicyRegular)
+
+        def activate():
+            app.unhide_(None)
+            for window in app.windows():
+                window.makeKeyAndOrderFront_(None)
+            app.activateIgnoringOtherApps_(True)
+
+        # Matplotlib creates its NSWindow only after show() starts the event loop.
+        focus_timer = plt.gcf().canvas.new_timer(interval=100)
+        focus_timer.single_shot = True
+        focus_timer.add_callback(activate)
+        focus_timer.start()
+
+    plt.show()
+
+
 def visualize_glyph(
     slug_name,
     show_controls=False,
@@ -222,6 +248,7 @@ def visualize_glyph(
     italic=False,
     ref_font=None,
     ref_char=None,
+    focus=False,
 ):
     if configs is None:
         configs = [DrawConfig()]
@@ -311,10 +338,12 @@ def visualize_glyph(
     ax.set_aspect("equal")
     ax.set_title(f"'{slug_name}'", fontsize=16)
     plt.tight_layout()
-    plt.show()
+    show_window(focus)
 
 
-def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
+def visualize_text(
+    text, point_size=None, guides=False, dc=None, italic=False, focus=False
+):
     if dc is None:
         dc = DrawConfig()
     all_glyphs = discover_glyphs()
@@ -453,7 +482,7 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
     else:
         plt.tight_layout()
 
-    plt.show()
+    show_window(focus)
 
 
 if __name__ == "__main__":
@@ -501,6 +530,11 @@ if __name__ == "__main__":
         metavar="CHAR",
         help="Character to pull from --ref (default: the visualized glyph's own char)",
     )
+    parser.add_argument(
+        "--focus",
+        action="store_true",
+        help="Make the plot a regular, focused macOS window",
+    )
     args = parser.parse_args()
 
     if args.config:
@@ -539,6 +573,7 @@ if __name__ == "__main__":
             guides=args.guides,
             dc=configs[0],
             italic=italic,
+            focus=args.focus,
         )
     else:
         if not args.slug:
@@ -551,4 +586,5 @@ if __name__ == "__main__":
             italic=italic,
             ref_font=args.ref,
             ref_char=args.ref_char,
+            focus=args.focus,
         )

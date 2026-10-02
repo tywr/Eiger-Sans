@@ -7,7 +7,7 @@ Usage: python -m scripts.samples [font.ttf] [-o OUTPUT_DIR]
 import argparse
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, features
 
 
 # Dark specimen palette.
@@ -19,6 +19,7 @@ IMAGE_PAD = 96
 LINE_LEADING = int(FONT_SIZE * 1.55)
 PARA_GAP = int(FONT_SIZE * 0.8)
 TEXT_WIDTH = 1500  # text column width in pixels
+TEXT_FEATURES = ["liga", "calt"] if features.check("raqm") else None
 
 
 LOREM = """\
@@ -41,7 +42,8 @@ def wrap_to_width(text, font, max_width):
         current = ""
         for word in para.split():
             trial = f"{current} {word}".strip()
-            if not current or font.getlength(trial) <= max_width:
+            length_kwargs = {"features": TEXT_FEATURES} if TEXT_FEATURES else {}
+            if not current or font.getlength(trial, **length_kwargs) <= max_width:
                 current = trial
             else:
                 lines.append(current)
@@ -68,8 +70,9 @@ def render_lorem(output, font_path, font_size=FONT_SIZE):
         if line == "":
             y += PARA_GAP
             continue
-        # liga/calt so the font's ligatures/contextual alternates fire.
-        draw.text((IMAGE_PAD, y), line, font=font, fill=FG, features=["liga", "calt"])
+        # liga/calt require Pillow to be built with libraqm.
+        text_kwargs = {"features": TEXT_FEATURES} if TEXT_FEATURES else {}
+        draw.text((IMAGE_PAD, y), line, font=font, fill=FG, **text_kwargs)
         y += LINE_LEADING
 
     os.makedirs(os.path.dirname(output), exist_ok=True)

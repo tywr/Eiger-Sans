@@ -18,10 +18,10 @@ class FontConfig:
     window_width: int = 600
     extra_window_width: int = 0
 
-    ascent: int = 725
-    descent: int = -190
+    ascent: int = 735
+    descent: int = -180
     cap: int = 725
-    x_height: int = 507
+    x_height: int = 525
 
     accent: int = 685
     accent_cap: int = 890
@@ -32,10 +32,10 @@ class FontConfig:
     italic_angle: float = 9.4
 
     space = 290
-    side_bearing = 82
+    side_bearing = 84
 
     hx: int = 185
-    hy: int = 170
+    hy: int = 185
 
     cap_hx: int = 190
     cap_hy: int = 160
@@ -43,18 +43,11 @@ class FontConfig:
     taper: float = 0.6
 
     # Classic config
-    # width: int = 485
-    # default_stroke: int = 85
-    # stroke_x: int = 85
-    # stroke_y: int = 71
-    # stroke_alt: int = 71
-
-    # Univers-like config
-    width: int = 497
-    default_stroke: int = 88
-    stroke_x = 88
-    stroke_y = 62
-    stroke_alt = 58
+    width: int = 484
+    default_stroke: int = 85
+    stroke_x: int = 85
+    stroke_y: int = 71
+    stroke_alt: int = 71
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16

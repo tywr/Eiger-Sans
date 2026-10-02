@@ -8,11 +8,11 @@ class UppercaseUGlyph(UppercaseGlyph):
     unicode = "0x55"
     hx_ratio = 1.0
     hy_ratio = 1.0
-    width_ratio = 1.167
+    width_ratio = 1.156116
     bold_width_ratio = 1.278
     loop_ratio = 0.66
-    sbl = 1.085
-    sbr = 1.085
+    sbl = 1.057976
+    sbr = 1.057976
     overshoot_bottom = True
     bold_sbl = 1.127
     bold_sbr = 1.127

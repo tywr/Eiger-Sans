@@ -6,9 +6,9 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseQGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_q"
     unicode = "0x71"
-    width_ratio = 0.954
-    sbr = 0.963
-    sbl = 0.549
+    width_ratio = 0.988699
+    sbr = 0.930000
+    sbl = 0.627738
     bold_width_ratio = 1.068
     bold_sbl = 0.521
     bold_sbr = 0.944

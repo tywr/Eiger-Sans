@@ -9,13 +9,13 @@ from draw.polygon import draw_polygon
 class LowercaseTGlyph(Glyph):
     name = "lowercase_t"
     unicode = "0x74"
-    rl_ratio = 0.47
+    rl_ratio = 0.445
     up_ratio = 0.27
     angle_offset = 0.3
-    width_ratio = 0.610
+    width_ratio = 0.591178
     bold_width_ratio = 0.720
-    sbl = 0.183
-    sbr = 0.317
+    sbl = 0.348809
+    sbr = 0.569642
     bold_sbl = 0.141
     bold_sbr = 0.268
 

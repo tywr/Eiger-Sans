@@ -13,11 +13,11 @@ class UppercaseAGlyph(UppercaseGlyph):
     bar_height = 0.39
     overlap = 0.5
     stroke_x_ratio = 1.1
-    width_ratio = 1.412
+    width_ratio = 1.252995
     bold_width_ratio = 1.545
     higher_section_height = 1.5
-    sbl = 0.061
-    sbr = 0.061
+    sbl = 0.401072
+    sbr = 0.401071
     bold_sbl = -0.070
     bold_sbr = -0.070
 

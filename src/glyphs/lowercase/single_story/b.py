@@ -6,9 +6,9 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseBGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_b"
     unicode = "0x62"
-    width_ratio = 0.954
-    sbr = 0.549
-    sbl = 0.963
+    width_ratio = 0.985434
+    sbr = 0.634881
+    sbl = 0.999762
     bold_width_ratio = 1.068
     bold_sbl = 0.944
     bold_sbr = 0.521

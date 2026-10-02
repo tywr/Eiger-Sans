@@ -20,10 +20,10 @@ class UppercaseSGlyph(UppercaseGlyph):
     right_offset = 0.02
     curve_thinning = 0.004
     curve_ratio = 2.4
-    width_ratio = 1.060
+    width_ratio = 1.084808
     bold_width_ratio = 1.183
-    sbr = 0.659
-    sbl = 0.659
+    sbr = 0.668452
+    sbl = 0.666819
     overshoot_bottom = True
     overshoot_top = True
     bold_sbl = 0.634

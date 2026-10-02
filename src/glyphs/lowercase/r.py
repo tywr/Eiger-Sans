@@ -12,13 +12,13 @@ class LowercaseRGlyph(Glyph):
     hx_ratio = 1
     hy_ratio = 1
     taper = 0.3
-    width_ratio = 0.547
+    width_ratio = 0.570000
     bold_width_ratio = 0.654
     stroke_ratio = 0.95
     arch_length = 0.65
     hx_ratio = 1.2
-    sbl = 0.963
-    sbr = 0.146
+    sbl = 0.941667
+    sbr = 0.308095
     overshoot_top = True
     bold_sbl = 0.944
     bold_sbr = 0.141

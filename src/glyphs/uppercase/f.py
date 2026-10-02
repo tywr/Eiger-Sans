@@ -7,10 +7,10 @@ class UppercaseFGlyph(UppercaseGlyph):
     unicode = "0x46"
     mid_bar_ratio = 0.94
     mid_ratio = 0.49
-    width_ratio = 0.869
+    width_ratio = 0.882521
     bold_width_ratio = 0.960
-    sbr = 0.427
-    sbl = 1.195
+    sbr = 0.658214
+    sbl = 1.069524
     bold_sbl = 1.169
     bold_sbr = 0.394
 

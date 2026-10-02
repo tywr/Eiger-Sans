@@ -5,12 +5,12 @@ from draw.parallelogramm import draw_parallelogramm
 class UppercaseXGlyph(UppercaseGlyph):
     name = "uppercase_x"
     unicode = "0x58"
-    width_ratio = 1.316
+    width_ratio = 1.221942
     bold_width_ratio = 1.505
     stroke_x_ratio = 1.08
     top_offset = 0.02
-    sbr = 0.085
-    sbl = 0.085
+    sbr = 0.521786
+    sbl = 0.517381
     bold_sbl = -0.056
     bold_sbr = -0.056
 

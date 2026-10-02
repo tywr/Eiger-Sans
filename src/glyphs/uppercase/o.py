@@ -7,10 +7,10 @@ class UppercaseOGlyph(UppercaseGlyph):
     unicode = "0x4F"
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.04
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.09
-    width_ratio = 1.314
+    width_ratio = 1.335702
     bold_width_ratio = 1.390
-    sbl = 0.622
-    sbr = 0.622
+    sbl = 0.744047
+    sbr = 0.744047
     overshoot_bottom = True
     overshoot_top = True
     bold_sbl = 0.620

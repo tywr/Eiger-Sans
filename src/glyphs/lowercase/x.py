@@ -6,11 +6,11 @@ class LowercaseXGlyph(Glyph):
     name = "lowercase_x"
     unicode = "0x78"
     stroke_ratio = 1.1
-    width_ratio = 1.002
+    width_ratio = 0.938202
     bold_width_ratio = 1.123
     top_offset = 0.02
-    sbl = 0.159
-    sbr = 0.159
+    sbl = 0.418571
+    sbr = 0.418572
     bold_sbl = 0.014
     bold_sbr = 0.014
 

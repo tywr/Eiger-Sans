@@ -5,11 +5,12 @@ from glyphs.lowercase.dotted import DottedLowercaseGlyph
 class LowercaseIGlyph(DottedLowercaseGlyph):
     name = "lowercase_i"
     unicode = "0x69"
+    dot_width = 1.378706
     bold_width_ratio = 0.306
-    width_ratio = 0.197
+    width_ratio = 0.197407
     cap = 0.5
-    sbr = 1
-    sbl = 1
+    sbr = 0.958869
+    sbl = 0.970535
     bold_sbl = 1
     bold_sbr = 1
 

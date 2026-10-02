@@ -8,12 +8,12 @@ class UppercaseBGlyph(UppercaseGlyph):
     unicode = "0x42"
     upper_ratio = 0.86
     mid_ratio = 0.515
-    width_ratio = 1.034
+    width_ratio = 1.060083
     bold_width_ratio = 1.153
     hx_ratio = 1.1
     hy_ratio = 1.1
-    sbl = 1.195
-    sbr = 0.707
+    sbl = 1.069524
+    sbr = 0.646548
     bold_sbl = 1.169
     bold_sbr = 0.634
 

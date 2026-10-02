@@ -6,14 +6,14 @@ from draw.rect import draw_rect
 class LowercaseFGlyph(Glyph):
     name = "lowercase_f"
     unicode = "0x66"
-    rl_ratio = 0.53
+    rl_ratio = 0.56
     cross_bar_height = 1
     right_bar_offset = 0.018
-    width_ratio = 0.624
+    width_ratio = 0.613368
     bold_width_ratio = 0.738
     thickening = 1.1
-    sbl = 0.195
-    sbr = 0.183
+    sbl = 0.319762
+    sbr = 0.453452
     bold_sbl = 0.197
     bold_sbr = 0.113
 

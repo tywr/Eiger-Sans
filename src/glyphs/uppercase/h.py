@@ -6,10 +6,10 @@ class UppercaseHGlyph(UppercaseGlyph):
     name = "uppercase_h"
     unicode = "0x48"
     bar_height = 0.51
-    width_ratio = 1.131
+    width_ratio = 1.162210
     bold_width_ratio = 1.262
-    sbl = 1.195
-    sbr = 1.195
+    sbl = 1.069524
+    sbr = 1.069523
     bold_sbl = 1.169
     bold_sbr = 1.169
 

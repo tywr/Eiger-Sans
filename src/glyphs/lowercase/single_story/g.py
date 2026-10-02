@@ -9,18 +9,18 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
-    width_ratio = 0.968
-    sbl = 0.549
-    sbr = 0.951
+    width_ratio = 0.986673
+    sbl = 0.627738
+    sbr = 0.941667
 
     tail_offset = 0
-    tail_stroke_x_ratio = 0.96
-    tail_stroke_y_ratio = 1.01
+    tail_stroke_x_ratio = 1.0
+    tail_stroke_y_ratio = 1.1
     hx_ratio = 1.0
     hy_ratio = 0.92
-    tail_hx_ratio = 0.95
+    tail_hx_ratio = 0.8
     tail_hy_ratio = 0.6
-    cut_ratio = 0.290
+    cut_ratio = 0.28
     tail_offset = 0.04
     y1_offset = 0.065
     bold_width_ratio = 1.070

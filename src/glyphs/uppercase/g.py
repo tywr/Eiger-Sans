@@ -22,11 +22,11 @@ class UppercaseGGlyph(UppercaseGlyph):
     right_hx_ratio = 1.15
     right_bot_hx_ratio = 1
     right_bot_hy_ratio = 0.8
-    width_ratio = 1.267
+    width_ratio = 1.298907
     bold_width_ratio = 1.366
     thinning = 0.9
-    sbl = 0.622
-    sbr = 0.622
+    sbl = 0.744047
+    sbr = 0.659630
     overshoot_bottom = True
     overshoot_top = True
     bold_sbl = 0.620

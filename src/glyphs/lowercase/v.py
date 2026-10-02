@@ -8,13 +8,13 @@ from draw.polygon import draw_polygon
 class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
-    width_ratio = 1.020
+    width_ratio = 0.982624
     bold_width_ratio = 1.137
     overlap = 0.5
     stroke_ratio = 1.05
     lower_section_height = 1.3
-    sbl = 0.159
-    sbr = 0.122
+    sbl = 0.395238
+    sbr = 0.395238
     bold_sbl = 0.028
     bold_sbr = 0.028
 

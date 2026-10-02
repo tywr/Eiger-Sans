@@ -9,16 +9,16 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseCGlyph(RoundLowercaseGlyph):
     name = "lowercase_c"
     unicode = "0x63"
-    opening1 = 0.35
-    opening2 = 0.67
+    opening1 = 0.315
+    opening2 = 0.69
     thinning = 0.9
     top_offset = 0.00
     stroke_x_ratio = 1.03
     right_hx_ratio = 1.15
     right_hy_ratio = 1.15
-    width_ratio = 0.94
-    sbl = 0.549
-    sbr = 0.300
+    width_ratio = 0.970843
+    sbl = 0.627738
+    sbr = 0.439907
     bold_width_ratio = 1.02
     bold_sbl = 0.521
     bold_sbr = 0.300

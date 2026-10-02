@@ -11,15 +11,15 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     unicode = "0x65"
     mid_height = 0.52
     thinning = 0.9
-    hx_ratio = 1.15
-    tail_offset = 0.02
-    tail_height = 0.330
+    hx_ratio = 1
+    tail_offset = 0.03
+    tail_height = 0.27
     tail_hx_ratio = 1.15
     tail_hy_ratio = 1.15
-    width_ratio = 0.92
+    width_ratio = 0.961219
     bold_width_ratio = 1.02
-    sbl = 0.549
-    sbr = 0.546
+    sbl = 0.627738
+    sbr = 0.634881
     bold_sbl = 0.521
     bold_sbr = 0.505
 

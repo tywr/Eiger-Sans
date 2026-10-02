@@ -6,20 +6,20 @@ from draw.rect import draw_rect
 class LowercaseMGlyph(Glyph):
     name = "lowercase_m"
     unicode = "0x6D"
-    width_ratio = 1.531
+    width_ratio = 1.480992
     bold_width_ratio = 1.682
     mid_len = 1
     top_stroke_y = 1
-    loop_ratio = 0.75
+    loop_ratio = 0.65
     hx_ratio = 0.55
-    hy_ratio = 0.75
+    hy_ratio = 0.7
     right_hx_ratio = 0.8
     taper1 = 0.5
-    taper2 = 0.65
+    taper2 = 0.85
     ending_thickness = 0.75
     min_width = 74
-    sbl = 0.963
-    sbr = 0.963
+    sbl = 0.941667
+    sbr = 0.883571
     overshoot_top = True
     bold_sbl = 0.944
     bold_sbr = 0.958

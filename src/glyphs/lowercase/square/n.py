@@ -7,9 +7,9 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseNGlyph(SquareLowercaseGlyph):
     name = "lowercase_n"
     unicode = "0x6E"
-    width_ratio = 0.875
-    sbr = 0.963
-    sbl = 0.963
+    width_ratio = 0.889422
+    sbr = 0.883571
+    sbl = 0.941667
     overshoot_top = True
     bold_width_ratio = 1.000
     bold_sbl = 0.944

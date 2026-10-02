@@ -10,11 +10,11 @@ class UppercaseRGlyph(UppercaseGlyph):
     loop_ratio = 0.605
     loop_width = 0.96
     branch_start = 0.63
-    width_ratio = 1.046
+    width_ratio = 1.064339
     bold_width_ratio = 1.177
     offset_bold = 50
-    sbl = 1.195
-    sbr = 0.683
+    sbl = 1.069524
+    sbr = 0.575476
     bold_sbl = 1.169
     bold_sbr = 0.577
 

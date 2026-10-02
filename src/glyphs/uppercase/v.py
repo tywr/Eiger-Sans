@@ -9,11 +9,11 @@ class UppercaseVGlyph(UppercaseGlyph):
     name = "uppercase_v"
     unicode = "0x56"
     stroke_x_ratio = 1.1
-    width_ratio = 1.318
+    width_ratio = 1.252995
     bold_width_ratio = 1.437
     lower_section_height = 1.5
-    sbl = 0.073
-    sbr = 0.073
+    sbl = 0.401072
+    sbr = 0.401071
     bold_sbl = -0.056
     bold_sbr = -0.056
 
