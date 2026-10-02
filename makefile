@@ -1,11 +1,14 @@
 build:
-	.venv/bin/python -m generate_font
-	.venv/bin/python -m scripts.banner
-	.venv/bin/python -m scripts.specimen_pdf
-	.venv/bin/python -m scripts.samples
+	uv run python -m generate_font
+	uv run python -m scripts.banner
+	uv run python -m scripts.specimen_pdf
+	uv run python -m scripts.samples
 
 build-otf:
-	.venv/bin/python -m generate_font --otf
+	uv run python -m generate_font --otf
 
 install-mac:
 	cp -r fonts/otf/EigerSans-*.otf ~/Library/Fonts
+
+visualize:
+	uv run python -m visualize lowercase_a --focus
